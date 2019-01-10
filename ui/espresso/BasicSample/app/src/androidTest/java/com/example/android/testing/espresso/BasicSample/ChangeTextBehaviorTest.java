@@ -69,20 +69,19 @@ public class ChangeTextBehaviorTest {
 
     @Test
     public void changeText_sameActivity() {
-        reportHelper.label("changeText_sameActivity-01");
+        reportHelper.label("changeText_sameActivity_01");
         // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
-        assertEquals("com.example.android.testing.espresso.BasicSample", appContext.getPackageName());
-        reportHelper.label("changeText_sameActivity-02");
+        //Context appContext = InstrumentationRegistry.getTargetContext();
+        //assertEquals("com.example.android.testing.espresso.BasicSample", appContext.getPackageName());
+        //reportHelper.label("changeText_sameActivity-02");
         // Type text and then press the button.
         onView(withId(R.id.editTextUserInput)).perform(typeText(STRING_TO_BE_TYPED), ViewActions.closeSoftKeyboard());
-        reportHelper.label("changeText_sameActivity-03");
+        reportHelper.label("changeText_sameActivity_02");
         onView(withId(R.id.changeTextBt)).perform(click());
-        reportHelper.label("changeText_sameActivity-04");
-
+        reportHelper.label("changeText_sameActivity-03");
         // Check that the text was changed.
         onView(withId(R.id.textToBeChanged)).check(matches(withText(STRING_TO_BE_TYPED)));
-        reportHelper.label("changeText_sameActivity-05");
+        //reportHelper.label("changeText_sameActivity-04");
     }
 
     @Test
@@ -93,10 +92,9 @@ public class ChangeTextBehaviorTest {
         reportHelper.label("changeText_newActivity-02");
         onView(withId(R.id.activityChangeTextBtn)).perform(click());
         reportHelper.label("changeText_newActivity-03");
-
         // This view is in a different Activity, no need to tell Espresso.
         onView(withId(R.id.show_text_view)).check(matches(withText(STRING_TO_BE_TYPED)));
-        reportHelper.label("changeText_newActivity-04");
+        //reportHelper.label("changeText_newActivity-04");
     }
 
     @After
